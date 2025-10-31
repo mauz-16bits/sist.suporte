@@ -1,8 +1,215 @@
-div {
-    border-style: solid;
-    max-width: 800px;
-    padding: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --card-bg-color: #ffffff;
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --input-border-color: #ccc;
+    --input-bg-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
-input {
-    margin-top: 0px;
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f1f1f1;
+    --card-bg-color: #1e1e1e;
+    --primary-color: #0084ff;
+    --primary-hover-color: #3a9dff;
+    --input-border-color: #444;
+    --input-bg-color: #2a2a2a;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+    background-color: var(--card-bg-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.header-buttons button {
+    margin-left: 10px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.header-buttons button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 5px;
+}
+
+#theme-toggle svg {
+    stroke: var(--text-color);
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.form-container {
+    background-color: var(--card-bg-color);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.subtitle {
+    margin-bottom: 2rem;
+    color: #888;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--input-border-color);
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.datetime-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-hover-color);
+}
+
+dialog {
+    width: 90%;
+    max-width: 400px;
+    padding: 2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
+
+dialog h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.dialog-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.dialog-actions .close-btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    color: var(--text-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dialog-actions .close-btn:hover {
+    background-color: #eee;
+}
+
+body.dark-mode .dialog-actions .close-btn:hover {
+    background-color: #333;
 }
